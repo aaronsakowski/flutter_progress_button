@@ -21,6 +21,7 @@ class ProgressButton extends StatefulWidget {
   final double height;
   final double borderRadius;
   final bool animate;
+  final BorderSide borderSide;
 
   ProgressButton({
     Key key,
@@ -33,6 +34,7 @@ class ProgressButton extends StatefulWidget {
     this.height = 40.0,
     this.borderRadius = 2.0,
     this.animate = true,
+    this.borderSide,
   }) : super(key: key);
 
   @override
@@ -92,6 +94,7 @@ class _ProgressButtonState extends State<ProgressButton>
   Widget _buildChild(BuildContext context) {
     var padding = const EdgeInsets.all(0.0);
     var color = widget.color;
+    var borderSide = widget.borderSide;
     var shape = RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(_borderRadius));
 
@@ -119,6 +122,7 @@ class _ProgressButtonState extends State<ProgressButton>
           shape: shape,
           child: _buildChildren(context),
           onPressed: _onButtonPressed(),
+          borderSide: borderSide,
         );
     }
   }
